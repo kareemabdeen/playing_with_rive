@@ -1,57 +1,25 @@
-import 'dart:ui';
+// ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
+import 'package:playing_with_rive/on_boarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const PlayingWithRive());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PlayingWithRive extends StatelessWidget {
+  const PlayingWithRive({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
-    );
-  }
-}
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({
-    super.key,
-  });
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          const RiveAnimation.asset(
-            "assets/shapes_onboarding.riv",
-            fit: BoxFit.cover,
-          ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-              child: const SizedBox(),
-            ),
-          ),
-        ],
-      ),
+      home: const OnboardingScreenWithRive(),
     );
   }
 }
